@@ -1,14 +1,22 @@
-public class TransferStation {
+import java.util.*;
 
-    public TransferStation(String color, String location){
+public class TransferStation extends Station{
 
+    ArrayList<Station> connections = new ArrayList<>();
+
+    public TransferStation(String line, String station){
+        super(line, station);
     }
 
     public void addTransferStationNext(Station station){
-
+        
     }
 
     public void addTransferStationPrev(Station station){
+
+    }
+
+    public String toString(){
 
     }
 }
