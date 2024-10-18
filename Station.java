@@ -5,7 +5,7 @@ public abstract class Station {
     private String station;
     private String line;
 
-    private Boolean isService 
+    private Boolean inService = true;
     
 
     public Station(String line, String station){
@@ -22,15 +22,12 @@ public abstract class Station {
     }
 
     public Boolean switchAvailable(){
-        if(nextStation != null){
-            return true;
-        }else{
-            return false;
-        }
+        return inService;
     }
 
     public void connect(Station station){
-        this.nextStation = station;
+        addNext(station);
+        station.addPrev(station);
     }
 
     public String getStation(){
@@ -49,12 +46,22 @@ public abstract class Station {
         this.line = line;
     }
 
-
-
-    public String toString(){
-        return "STATION " + getStation() + ": ";
+    public Boolean getInService(){
+        return inService;
     }
 
+    public Station getNextStation(){
+        return nextStation;
+    }
+
+    public Station getPrevStation(){
+        return prevStation;
+    }
+
+    public String toString(){
+        return "STATION " + station + ": " + line + ", in service: " + inService + " previous station: " + 
+        prevStation + ", next station: " + nextStation;
+    }
 
 
 }
