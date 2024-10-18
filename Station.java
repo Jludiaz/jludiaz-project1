@@ -1,28 +1,34 @@
-public abstract class Station {
-    private Station nextStation;
-    private Station prevStation;
+public class Station {
+    public Station next;
+    public Station prev;
 
     private String station;
     private String line;
 
-    private Boolean inService = true;
-    
+    private Boolean inService = true;  
+
+    public int tripLength = 0;
 
     public Station(String line, String station){
         this.line = line;
         this.station = station;
+        tripLength++;
     }
 
     public void addNext(Station station){
-        this.nextStation = station;
+        this.next = station;
     }
 
     public void addPrev(Station station){
-        this.prevStation = station;
+        this.prev = station;
     }
 
-    public Boolean switchAvailable(){
+    public boolean isAvailable(){
         return inService;
+    }
+
+    public void switchAvailable(){
+        inService = true;
     }
 
     public void connect(Station station){
@@ -46,22 +52,20 @@ public abstract class Station {
         this.line = line;
     }
 
-    public Boolean getInService(){
-        return inService;
-    }
-
     public Station getNextStation(){
-        return nextStation;
+        return next;
     }
 
     public Station getPrevStation(){
-        return prevStation;
+        return prev;
+    }
+
+    public int tripLength(Station station){
+        return station.tripLength;
     }
 
     public String toString(){
-        return "STATION " + station + ": " + line + ", in service: " + inService + " previous station: " + 
-        prevStation + ", next station: " + nextStation;
+        return "STATION " + station + ": " + line + ", in service: " + isAvailable() + " previous station: " + 
+        prev.getStation() + ", next station: " + next.getStation();
     }
-
-
 }

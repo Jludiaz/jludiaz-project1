@@ -11,8 +11,8 @@ public class EndStation extends Station{
     }
 
     public String toString(){
-        return "ENDSTATION " + getStation() + ": " + getLine() + ", in service: " + getInService() + " previous station: " + 
-        getPrevStation() + ", next station: " + getNextStation();
+        return "ENDSTATION " + getStation() + ": " + getLine() + ", in service: " + isAvailable() + " previous station: " + 
+        getPrevStation().getStation() + ", next station: " + getNextStation().getStation();
     }
     
 }
