@@ -4,15 +4,30 @@ public class EndStation extends Station{
         super(line, station);
     }
 
-    public void makeEnd(){
-        //stting the prev station and next station as itself as described in test case 
-        addPrev(this);
-        addNext(this);
+    public void makeEnd() {
+    
+        if (this.next == null && this.prev != null) {
+           this.next = this.prev;
+        } 
+
+        if(this.next != null && this.prev != null){
+            this.prev = this.next;
+        }
     }
 
     public String toString(){
-        return "ENDSTATION " + getStation() + ": " + getLine() + ", in service: " + isAvailable() + " previous station: " + 
-        getPrevStation().getStation() + ", next station: " + getNextStation().getStation();
+        String stationInformation =  "ENDSTATION " + getStation() + ": " + getLine() + " line, in service: " + isAvailable();
+        String prevStation = "none"; 
+        if (prev != null && prev.getStation() != null) {
+            prevStation = prev.getStation();
+        }
+
+        String nextStation = "none"; 
+        if (next != null && next.getStation() != null) {
+            nextStation = next.getStation(); 
+        }
+
+        return stationInformation + ", previous station: " + prevStation + ", next station: " + nextStation;
     }
     
 }

@@ -2,25 +2,24 @@ public class Station {
     public Station next;
     public Station prev;
 
-    private String station;
     private String line;
+    private String station;
 
     private Boolean inService = true;  
-
-    public int tripLength = 0;
 
     public Station(String line, String station){
         this.line = line;
         this.station = station;
-        tripLength++;
     }
 
     public void addNext(Station station){
-        this.next = station;
+        this.next = station; 
+        station.prev = this;
     }
 
     public void addPrev(Station station){
-        this.prev = station;
+        this.prev = station; 
+        station.next = this;
     }
 
     public boolean isAvailable(){
@@ -28,16 +27,16 @@ public class Station {
     }
 
     public void switchAvailable(){
-        inService = true;
+        inService = !inService;
     }
 
     public void connect(Station station){
         addNext(station);
-        station.addPrev(station);
     }
 
     public String getStation(){
-        return station;
+        if (this.station == null) {return "none";}
+        else{ return this.station;}
     }
 
     public void setStation(String station){
@@ -45,7 +44,8 @@ public class Station {
     }
 
     public String getLine(){
-        return line;
+        if (this.line == null) {return "none";}
+        else{ return this.line;}
     }
 
     public void setLine(String line){
@@ -60,12 +60,46 @@ public class Station {
         return prev;
     }
 
-    public int tripLength(Station station){
-        return station.tripLength;
+    public int tripLength(Station station) {
+        int tripLength = 0;
+        Station currentStation = this;
+    
+        while (currentStation != null) {
+            if (currentStation == station) {
+                break;
+            }
+            tripLength++;
+            currentStation = currentStation.next;
+        }
+    
+        // Return the total length of the trip
+        return tripLength;
+    }
+
+    public boolean equals(Station station){
+        if (this.station == station.station && this.line == station.line){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public String toString(){
-        return "STATION " + station + ": " + line + ", in service: " + isAvailable() + " previous station: " + 
-        prev.getStation() + ", next station: " + next.getStation();
+        String stationInformation =  "STATION " + getStation() + ": " + getLine() + " line, in service: " + isAvailable();
+        String prevStation = "none"; 
+        if (prev != null && prev.getStation() != null) {
+            prevStation = prev.getStation();
+        }
+
+        String nextStation = "none"; 
+        if (next != null && next.getStation() != null) {
+            nextStation = next.getStation(); 
+        }
+
+        //System.out.println(stationInformation + ", previous station: " + prevStation + ", next station: " + nextStation);
+
+        return stationInformation + ", previous station: " + prevStation + ", next station: " + nextStation;
     }
+
+   // STATION Museum: pink line, in service: true, previous station: none, next station: none"
 }
