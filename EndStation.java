@@ -7,9 +7,9 @@ public class EndStation extends Station{
     public void makeEnd() {
     
         if (this.next == null && this.prev != null) {
-           this.next = this.prev;
-        } 
-
+            this.next = this.prev;
+        }
+        
         if(this.next != null && this.prev != null){
             this.prev = this.next;
         }
