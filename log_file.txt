@@ -1,0 +1,41 @@
+commit ff8eecc6d85c2d76bd61ce3607c4cba3586d5804
+Author: Jeremy <jeremyludiaz@gmail.com>
+Date:   Fri Oct 18 21:14:11 2024 -0400
+
+    MEtroSimulator
+
+commit ffcc8195586f6a4eee7136b95499d946e0ba10d9
+Author: Jeremy <jeremyludiaz@gmail.com>
+Date:   Fri Oct 18 19:49:14 2024 -0400
+
+    update
+
+commit 88b0c795496ffc7725583995466d6ae24c792541
+Author: Jeremy <jeremyludiaz@gmail.com>
+Date:   Fri Oct 18 16:07:32 2024 -0400
+
+    Cant get my test cases to run
+
+commit 634ec2a34a99a3c0867b6e7c23cf920475244ee9
+Author: Jeremy <jeremyludiaz@gmail.com>
+Date:   Fri Oct 18 15:10:19 2024 -0400
+
+    Added the toString to match the tester toString
+
+commit a2c43aa1ccbb655d1d9989e06171eb629e62be1e
+Author: Jeremy <jeremyludiaz@gmail.com>
+Date:   Fri Oct 18 11:59:02 2024 -0400
+
+    Starting to write my methods
+
+commit f4d79d86b7f50b5a8ff57e122f908976ee608f43
+Author: Jeremy <jeremyludiaz@gmail.com>
+Date:   Mon Oct 14 19:37:40 2024 -0400
+
+    Defined Methods
+
+commit c86a367a78ac40e2b4f7b5e03e5a244f622b67ff
+Author: Jeremy <jeremyludiaz@gmail.com>
+Date:   Mon Oct 7 14:43:56 2024 -0400
+
+    First Commit
