@@ -10,10 +10,12 @@ public class TransferStation extends Station{
 
     public void addTransferStationNext(Station station){
         otherStations.add(station);
+        station.setPrevStation(this);
     }
 
     public void addTransferStationPrev(Station station){
         otherStations.add(station);
+        station.setNextStation(this);
     }
 
     public String toString(){

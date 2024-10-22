@@ -271,9 +271,11 @@ public class Project1_Tester {
     s1.makeEnd();
     s4.makeEnd();
 
+
     assertEquals(1, s1.tripLength(s2));
     assertEquals(3, s1.tripLength(s4));
     assertEquals(0, s1.tripLength(s1));
+    
 
   }
 
@@ -322,9 +324,9 @@ public class Project1_Tester {
     MetroSimulator.makeOrangeLine();
     MetroSimulator.makeRedLine();
     MetroSimulator.makePurpleLine();
-
     assertEquals(9, MetroSimulator.va_square.tripLength(MetroSimulator.smithsonian));
     assertEquals(9, MetroSimulator.va_square.tripLength(MetroSimulator.judiciary_square));
+    System.out.println("HEllo world");
     assertEquals(4, MetroSimulator.foggy_bottom.tripLength(MetroSimulator.s4));
     assertEquals(3, MetroSimulator.s2.tripLength(MetroSimulator.gallery_place));
   }

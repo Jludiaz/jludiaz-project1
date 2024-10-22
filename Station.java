@@ -1,12 +1,14 @@
 
 public class Station {
-    public Station next;
-    public Station prev;
+    protected Station next;
+    protected Station prev;
 
-    private String line;
-    private String station;
+    protected String line;
+    protected String station;
 
-    private Boolean inService = true;  
+    protected Boolean inService = true;  
+
+    //Pointing to the currentStation it is on
 
     public Station(String line, String station){
         this.line = line;
@@ -57,24 +59,47 @@ public class Station {
         return next;
     }
 
+    public void setNextStation(Station next){
+        this.next = next;
+    }
+
     public Station getPrevStation(){
         return prev;
     }
 
+    public void setPrevStation(Station prev){
+        this.prev = prev;
+    }
+
     public int tripLength(Station station) {
-        int tripLength = 0;
         Station currentStation = this;
-    
-        while (currentStation != null) {
-            if (currentStation == station) {
-                break;
-            }
-            tripLength++;
-            currentStation = currentStation.next;
+        
+        //base case 1: if the stations match (example s1.tripLength(s1))
+        if (currentStation == station) {
+            return 0; //both of the stations match
         }
-    
-        // Return the total length of the trip
-        return tripLength;
+
+        //base case 2: if the station reaches the end
+        if (currentStation.next == null){
+            return -1;
+        }
+
+        int tripLength = currentStation.next.tripLength(station);
+
+        currentStation = currentStation.next;
+        System.out.println(currentStation.station + " " + station.station);
+
+        if (tripLength != -1){
+            return 1 + tripLength;
+        }
+
+        return -1; 
+
+
+        // If we reach the end and havent found the station, 
+        // if (currentStation.next.next == currentStation) {
+        //     return -1;
+        // } 
     }
 
     public boolean equals(Station station){
