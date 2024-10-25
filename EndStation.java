@@ -31,6 +31,28 @@ public class EndStation extends Station{
         // }
     }
 
+    public int tripLength(Station station) {   
+        Station currentStation = this;
+        // Base case 1: if we found the target station
+        if (currentStation == station) {
+            return 0;
+        }
+        
+        // Base case 2: if we've reached the end of a line with no match
+        if (currentStation.next == null) {
+            return -1;
+        }
+        
+        int tripLength = currentStation.next.tripLength(station);
+        
+        if (tripLength != -1) {
+            return 1 + tripLength;
+        }
+        
+        // No path found
+        return -1;
+    }
+
     public String toString(){
         String stationInformation =  "ENDSTATION " + getStation() + ": " + getLine() + " line, in service: " + isAvailable();
         String prevStation = "none"; 

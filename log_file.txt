@@ -1,3 +1,21 @@
+commit 67c87f30f375f4a0f5d05b2bc27c9fac365daa16
+Author: Jeremy <jeremyludiaz@gmail.com>
+Date:   Thu Oct 24 21:03:10 2024 -0400
+
+    Found my error, I need to take into account if trip length is accounting for the transfer stations
+
+commit f502fefd417355669b23e98da864230fa6848252
+Author: Jeremy <jeremyludiaz@gmail.com>
+Date:   Tue Oct 22 16:57:47 2024 -0400
+
+    Office Hours improvement. I was defining my metroSimulator makeEnd() stations at the beginning, in which had nothing to connect to. It wasnt my makeEnd() method that was causing me issues. Then I fixed my toString() method in EndStation. Now im dealign with my tripLength and implementing it to detect transfer Stations
+
+commit d17cf26c80ed2958712bb6549ce0224595929493
+Author: Jeremy <jeremyludiaz@gmail.com>
+Date:   Fri Oct 18 22:32:56 2024 -0400
+
+    Final commit I tried so hard
+
 commit ff8eecc6d85c2d76bd61ce3607c4cba3586d5804
 Author: Jeremy <jeremyludiaz@gmail.com>
 Date:   Fri Oct 18 21:14:11 2024 -0400

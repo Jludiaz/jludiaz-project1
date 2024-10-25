@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class Station {
     protected Station next;
@@ -72,6 +73,7 @@ public class Station {
     }
 
     public int tripLength(Station station) {
+
         Station currentStation = this;
         
         //base case 1: if the stations match (example s1.tripLength(s1))
@@ -83,9 +85,9 @@ public class Station {
             return -1;
         }
 
+        System.out.println(currentStation.station + " " + station.station);
         int tripLength = currentStation.next.tripLength(station);
-        currentStation = currentStation.next;
-        // System.out.println(currentStation.station + " " + station.station);
+        //currentStation = currentStation.next;
         if (tripLength != -1){
             return 1 + tripLength;
         }

@@ -2,7 +2,7 @@ import java.util.*;
 
 public class TransferStation extends Station{
 
-    ArrayList<Station> otherStations = new ArrayList<>();
+    public ArrayList<Station> otherStations = new ArrayList<>();
 
     public TransferStation(String line, String station){
         super(line, station);
@@ -25,15 +25,18 @@ public class TransferStation extends Station{
         if (currentStation == station) {
             return 0; //both of the stations match
         }
-        
-        //Base case 3: if the station is a transfer station
-        if (currentStation == this){
-            return 0;
-        }
-
         //base case 2: if the station reaches the end
         if (currentStation.next == null){
             return -1;
+        }
+
+        //base case 3 
+        if (currentStation.line != station.line) {
+            for (Station transfer : otherStations) {
+                if (station == transfer){
+                    return 1;
+                }
+            }
         }
 
         int tripLength = currentStation.next.tripLength(station);
@@ -44,6 +47,7 @@ public class TransferStation extends Station{
         }
         return -1; 
     }
+    
 
     public String toString(){
         String stationInformation =  "TRANSFERSTATION " + getStation() + ": " + getLine() + " line, in service: " + isAvailable();
