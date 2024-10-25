@@ -78,28 +78,18 @@ public class Station {
         if (currentStation == station) {
             return 0; //both of the stations match
         }
-
         //base case 2: if the station reaches the end
         if (currentStation.next == null){
             return -1;
         }
 
         int tripLength = currentStation.next.tripLength(station);
-
         currentStation = currentStation.next;
-        System.out.println(currentStation.station + " " + station.station);
-
+        // System.out.println(currentStation.station + " " + station.station);
         if (tripLength != -1){
             return 1 + tripLength;
         }
-
         return -1; 
-
-
-        // If we reach the end and havent found the station, 
-        // if (currentStation.next.next == currentStation) {
-        //     return -1;
-        // } 
     }
 
     public boolean equals(Station station){

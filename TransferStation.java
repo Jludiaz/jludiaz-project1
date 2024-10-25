@@ -18,6 +18,33 @@ public class TransferStation extends Station{
         station.setNextStation(this);
     }
 
+    public int tripLength(Station station) {
+        Station currentStation = this;
+        
+        //base case 1: if the stations match (example s1.tripLength(s1))
+        if (currentStation == station) {
+            return 0; //both of the stations match
+        }
+        
+        //Base case 3: if the station is a transfer station
+        if (currentStation == this){
+            return 0;
+        }
+
+        //base case 2: if the station reaches the end
+        if (currentStation.next == null){
+            return -1;
+        }
+
+        int tripLength = currentStation.next.tripLength(station);
+        currentStation = currentStation.next;
+        // System.out.println(currentStation.station + " " + station.station);
+        if (tripLength != -1){
+            return 1 + tripLength;
+        }
+        return -1; 
+    }
+
     public String toString(){
         String stationInformation =  "TRANSFERSTATION " + getStation() + ": " + getLine() + " line, in service: " + isAvailable();
         String prevStation = "none"; 
